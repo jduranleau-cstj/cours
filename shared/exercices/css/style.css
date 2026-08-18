@@ -1,0 +1,62 @@
+:root {
+    --text-color: #111;
+    --bg-color: #fff;
+    --link-color: rgb(0, 110, 255);
+
+    @media (prefers-color-scheme: dark) {
+        --text-color: #fff;
+        --bg-color: #151515;
+    }
+}
+
+
+html {
+    font-size: 24px;
+}
+
+a {
+    color: var(--link-color);
+}
+
+body {
+    font-family: Inter, Arial;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    width: 800px;
+    margin: 0px auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+ol li::marker {
+    font-weight: bold;
+}
+
+.container>ol>li {
+    padding: 3rem 0px;
+    border-bottom: 1px solid #EEE;
+}
+
+.gray {
+    color: #999;
+}
+
+span.var {
+    display: inline-block;
+    font-style: italic;
+    color: rgb(151, 31, 111);
+    font-weight: bold;
+}
+
+.language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.operator,
+.token.url {
+    background: none !important;
+}

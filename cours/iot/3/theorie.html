@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="../../cours/iot/style.css">
+
+<div class="slide center intro">
+    <h1>Internet des objets</h1>
+    <h2>Cours 03</h2>
+</div>
+
+<div class="slide">
+    <h1>Sujets de la semaine</h1>
+    <div class="planning">
+        <ul>
+            <li>Documentations</li>
+            <li>Flowfuse Dashboard</li>
+            <li>Variables (rappel)</li>
+            <li>Node "link"</li>
+            <li>Node "text"</li>
+            <li>Configuration dynamique de node</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Documentation des nodes</h1>
+    <p>Tous les nodes dans Node-RED ont une documentation intégrée.</p>
+    <p>On peut y accéder avec l'icône en haut à droite (à côté du debug)</p>
+    <br>
+    <p>Documentations en ligne:</p>
+    <ul>
+        <li><a href="https://nodered.org/docs/user-guide/writing-functions" target="_blank">Node-RED</a></li>
+        <li><a href="https://dashboard.flowfuse.com/getting-started" target="_blank">Node-RED Dashboard 2</a></li>
+    </ul>
+</div>
+
+<div class="slide center">
+    <h1>Installation de plugin (palette)</h1>
+    <p>@flowfuse/node-red-dashboard</p>
+</div>
+
+<div class="slide">
+    <h1>Variables (un rappel)</h1>
+    <p>Il est possible d'utiliser des variables "permanentes".</p>
+    <ul>
+        <li><strong>context</strong> : Local au node lui-même</li>
+        <li><strong>flow</strong> : Local au flow</li>
+        <li><strong>global</strong> : Global pour l'ensemble des flows</li>
+    </ul>
+    <p>Par exemple:</p>
+    <p>
+    <pre><code class="language-javascript">flow.set("compteur", 123)
+flow.get("compteur")</code></pre>
+    </p>
+</div>
+
+<div class="slide">
+    <h1>Node "Link"</h1>
+    <p>Le node "link" permet de transporter un message à un autre endroit arbitraire. Possiblement même dans un autre flow!</p>
+    <p>Il est important de <strong>toujours bien nommer ces nodes</strong> pour s'y retrouver.</p>
+    <p><img src="../../cours/iot/3/medias/link1.png" alt=""></p>
+    <p>Lorsqu'on sélectionne un côté, on peut voir le chemin:</p>
+    <p><img src="../../cours/iot/3/medias/link2.png" alt=""></p>
+</div>
+
+<div class="slide">
+    <h1>Node "Text"</h1>
+    <p>Comme l'indique sa documentation, le node "text" permet aussi d'afficher du HTML.</p>
+    <p>On peut le combiner à un node "template" pour créer des images ou autres balises.</p>
+    <p><img src="../../cours/iot/3/medias/html1.png" alt=""></p>
+    <p><img src="../../cours/iot/3/medias/html2.png" alt=""></p>
+</div>
+
+<div class="slide">
+    <h1>Configuration de node dynamique</h1>
+    <p>Plusieurs configuration de nodes peuvent être changées pendant l'exécution</p>
+    <p>Pour les changer, on envoie un message avec la clé ui_update et les valeurs à changer.</p>
+    <p><img src="../../cours/iot/3/medias/ui_update1.png" alt=""></p>
+    <p><img src="../../cours/iot/3/medias/ui_update2.png" alt=""></p>
+</div>

@@ -1,0 +1,253 @@
+<link rel="stylesheet" href="../../cours/iot/style.css">
+
+<div class="slide center intro">
+    <h1>Internet des objets</h1>
+    <h2>Cours 02</h2>
+</div>
+
+<div class="slide">
+    <h1>Sujets de la semaine</h1>
+    <div class="planning">
+        <ul>
+            <li>MQTT</li>
+            <li>Node-RED</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>MQTT</h1>
+    <ol>
+        <li>Concept</li>
+        <li>Assurance qualité de transmission</li>
+        <li>Terminologie</li>
+        <li>Logiciels et librairies</li>
+    </ol>
+</div>
+
+<div class="slide">
+    <h1>MQTT</h1>
+    <p>MQTT est un protocole réseau léger de type "publish-subscribe".</p>
+    <p style="line-height: 1.6rem">
+        <strong><span style="color: rgb(0, 140, 255);">M</span>essage</strong> : Communication d'information<br>
+        <strong><span style="color: rgb(0, 140, 255);">Q</span>ueuing</strong> : Pas une communication directe. Délai possible<br>
+        <strong><span style="color: rgb(0, 140, 255);">T</span>elemetry</strong> : Mesuré à distance, du Grec tele (à distance) metron (mesurer)<br>
+        <strong><span style="color: rgb(0, 140, 255);">T</span>ransport</strong> : Objectif est de transporter le message<br>
+    </p>
+</div>
+
+<div class="slide">
+    <h1>Objectifs du protocole MQTT</h1>
+    <ul>
+        <li>
+            Optimisé pour les appareils de type IdO
+            <ul>
+                <li>Simplicité</li>
+                <li>Réduction des transferts réseau</li>
+                <li>Optimisation énergétique</li>
+            </ul>
+        </li>
+        <li>
+            Assurance de transmission variable
+            <ul>
+                <li>Stabilité en cas d'internet instable</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h1>Prouvé sur le marché</h1>
+    <ul>
+        <li>Facebook messenger (sur mobile)</li>
+        <li>Philips Hue (lumières intelligentes)</li>
+        <li>Tesla, Ford, Audi ...</li>
+        <li>Google Nest (thermostats, caméras ...)</li>
+        <li>Sonos (Hautparleurs)</li>
+        <li>Honeywell (Gestion industrielle)</li>
+    </ul>
+    <p><em>Et plusieurs autres!</em></p>
+</div>
+
+<div class="slide">
+    <h1>Exemple MQTT</h1>
+    <iframe style="border: none; width: 100%; height: 100%; margin-top: -200px;" src="../../cours/iot/2/medias/simulation_mqtt.html" frameborder="0"></iframe>
+</div>
+
+<div class="slide">
+    <h1>Terminologie MQTT</h1>
+    <div style="font-size: 0.8rem">
+        <p><strong>Broker (courtier)</strong>: L'entité centrale qui relaie les messages.</p>
+        <p><strong>Client</strong>: Tout ce qui se connecte au "Broker"— Capteurs, applications, ...</p>
+        <p><strong>Topic (sujet)</strong>: Un filtre de contenu (e.x. "maison/salon/temperature").</p>
+        <p><strong>Publish (publier)</strong>: Un client envoie un message au Broker sur un Topic</p>
+        <p><strong>Subscribe (souscrire)</strong>: Un client demande d'être notifié par le Broker lorsqu'un topic reçoit un message</p>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>De façon plus technique</h1>
+    <ul>
+        <li>Connexion TCP</li>
+        <li>Librairie dans <a href="https://eclipse.dev/paho/downloads/" target="_blank">la majorité des langages</a></li>
+        <li>Possibilité de passer par les Websockets pour le Web</li>
+        <li>Filtres automatiques avec les "Topics"</li>
+        <li>Assurance de suivi avec les niveaux QoS</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h1 style="font-size: 1rem;">Les 3 niveaux de QoS (qualité de service)</h1>
+    <div style="font-size: 0.6rem; line-height: 0.7rem;">
+        <p><strong style="color: rgb(211, 60, 130)">QoS 0</strong></p>
+        <ul>
+            <li style="margin: 0.4rem 0px;">Envoi le message <strong style="color: rgb(211, 60, 130)">une fois, sans confirmation</strong>. Si le message n'est pas reçu, il est perdu.</li>
+            <li style="margin: 0.4rem 0px;">Très efficace en termes de transfert réseau et d'énergie.</li>
+            <li style="margin: 0.4rem 0px;">Analogie: Tu parles à quelqu'un dans une pièce bruyante et espères être entendu.</li>
+        </ul>
+
+        <p><strong style="color: rgb(60, 143, 211)">QoS 1</strong></p>
+        <ul>
+            <li style="margin: 0.4rem 0px;">Le client envoyant le message le garde et <strong style="color: rgb(60, 143, 211)">le renvoi jusqu'à avoir une confirmation</strong> du Broker.</li>
+            <li style="margin: 0.4rem 0px;">Duplication des messages possible.</li>
+            <li style="margin: 0.4rem 0px;">Analogie: Un parent te repose la même question jusqu'à ce que tu dises : "Oui, j'ai compris".</li>
+        </ul>
+
+        <p><strong style="color: rgb(60, 211, 118)">QoS 2</strong></p>
+        <ul>
+            <li style="margin: 0.4rem 0px;">Le client et le Broker s'assurent à l'aide de plusieurs (4) allez-retour que le message <strong style="color: rgb(60, 211, 118)">s'est bien rendu et est traité une seule fois</strong>.</li>
+            <li style="margin: 0.4rem 0px;">Analogie: Un colis Amazon qui nécessite la signature à la réception par la personne qui reçoit ET le livreur.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>La compétition</h1>
+    <div class="column-3" style="font-size: 0.8rem">
+        <div>
+            <h2 style="font-size: 1.2rem">MQTT</h2>
+            <ul>
+                <li>Simple</li>
+                <li>Efficace (énergie et réseau)</li>
+                <li>En mémoire</li>
+            </ul>
+        </div>
+        <div>
+            <h2 style="font-size: 1.2rem">Kafka</h2>
+            <ul>
+                <li>Infrastructure complexe</li>
+                <li>Gestion de grand volume (millions de requêtes par secondes)</li>
+                <li>Permanent sur le disque</li>
+            </ul>
+        </div>
+        <div>
+            <h2 style="font-size: 1.2rem">Polling HTTP</h2>
+            <ul>
+                <li>Peu efficace</li>
+                <li>Gestion manuelle</li>
+                <li>Optimisations personalisées</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Logiciel et librairies</h1>
+    <ul>
+        <li>Broker (Courtier)
+            <ul>
+                <li><strong><a href="https://mosquitto.org/" target="_blank">Mosquitto</a></strong> (open-source, simple et rapide)</li>
+                <li><a href="https://www.emqx.com/en" target="_blank">EMQX</a> (open-source, édition commerciale)</li>
+                <li><a href="https://www.hivemq.com/" target="_blank">HiveMQ</a> (commercial)</li>
+            </ul>
+        </li>
+        <li>Client
+            <ul>
+                <li><a href="https://eclipse.dev/paho/downloads" target="_blank">https://eclipse.dev/paho/downloads</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="slide center">
+    <h1>Démo MQTT</h1>
+</div>
+
+<div class="slide center">
+    <img src="../../cours/iot/2/medias/nodered.png" alt="">
+</div>
+
+<div class="slide">
+    <h1>Node-RED</h1>
+    <ul>
+        <li>Contrôle HTTP</li>
+        <li>Contrôle MQTT</li>
+        <li>Accès aux bases de données</li>
+        <li>Manipulation des données
+            <ul>
+                <li>De façon uniforme</li>
+                <li>En JavaScript</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="slide">
+    <div style="display: flex; align-items: center; gap: 20px; font-size: 0.7rem;">
+        <img src="../../cours/iot/2/medias/nodered-inject.png" style="width: 250px;" alt="">
+        <p>Lance manuelle une valeur dans un flow.<br>Peut-être exécuté à répétition avec un délai ou au lancement.</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 20px; font-size: 0.7rem;">
+        <img src="../../cours/iot/2/medias/nodered-debug.png" style="width: 250px;" alt="">
+        <p>Affiche le message dans la console de Node-RED (à droite).<br>Par défaut, affiche uniquement le payload.</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 20px; font-size: 0.7rem;">
+        <img src="../../cours/iot/2/medias/nodered-function.png" style="width: 250px;" alt="">
+        <p>Transforme le message à l'aide de code JavaScript personnalisé.</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 20px; font-size: 0.7rem;">
+        <img src="../../cours/iot/2/medias/nodered-change.png" style="width: 250px;" alt="">
+        <p>Définie, change ou supprime une valeur spécifique du message.</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 20px; font-size: 0.7rem;">
+        <img src="../../cours/iot/2/medias/nodered-switch.png" style="width: 250px;" alt="">
+        <p>Branchement conditionnel du flow.</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 20px; font-size: 0.7rem;">
+        <img src="../../cours/iot/2/medias/nodered-template.png" style="width: 250px;" alt="">
+        <p>Transforme le message en contenu texte ou JSON.</p>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Variables</h1>
+    <p>Il est possible d'utiliser des variables "permanentes".</p>
+    <ul>
+        <li><strong>context</strong> : Local au node lui-même</li>
+        <li><strong>flow</strong> : Local au flow</li>
+        <li><strong>global</strong> : Global pour l'ensemble des flows</li>
+    </ul>
+    <p>Par exemple:</p>
+    <p>
+    <pre><code class="language-javascript">flow.set("compteur", 123)
+flow.get("compteur")</code></pre>
+    </p>
+</div>
+
+<div class="slide">
+    <h1>Fonctions</h1>
+    <ul>
+        <li>Une fonction doit <strong>toujours</strong> retourner le message (donc <code class="language-javascript">msg</code> et pas juste le payload!).</li>
+        <li>Il est possible de configurer plusieurs sorties. Il faudra alors que le return soit un tableau.
+            <ul>
+                <li>Pour cloner un message, on utilise <code class="language-javascript">RED.util.cloneMessage()</code></li>
+            </ul>
+        </li>
+        <li>On peut <em>débugger</em> une fonction avec <code class="language-javascript">node.warn</code> plutôt que <code class="language-javascript">console.log</code></li>
+    </ul>
+
+</div>
+
+<div class="slide center">
+    <h1><a href="../exercices/?f=iot/2/exercices.html" target="_blank">Exercices Node-RED</a></h1>
+</div>

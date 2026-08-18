@@ -1,0 +1,6 @@
+h1,
+h2 {
+    color: transparent;
+    background-image: linear-gradient(170deg, #5f82a3, #462be0);
+    background-clip: text;
+}

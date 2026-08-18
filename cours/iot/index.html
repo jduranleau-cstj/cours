@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Internet des objets - Cégep de Saint-Jérôme - Julien Duranleau</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="../../shared/css/style.css">
+        <link rel="stylesheet" href="../../shared/libs/katex/katex.css">
+        <link rel="stylesheet" href="../../shared/libs/prism/prism.css">
+        <style>
+            body {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("bg.jpg");
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Internet des objets</h1>
+                <h2>Julien Duranleau - CSTJ</h2>
+                <a class="schedule" target="_blank" href="../../shared/images/horaire.png">horaire</a>
+            </header>
+            <main>
+                <div class="line">
+                    <div class="left">
+                        <div class="label">Cours 1</div>
+                        <div class="description">
+                            <ul>
+                                <li>Plan de cours</li>
+                                <li>Platform IO</li>
+                                <li>Révision objets connectés</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/1/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/1/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="left">
+                        <div class="label">Cours 2</div>
+                        <div class="description">
+                            <ul>
+                                <li>MQTT</li>
+                                <li>Environnement de développement avec Docker</li>
+                                <li>Node-RED</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/2/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/2/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="left">
+                        <div class="label">Cours 3</div>
+                        <div class="description">
+                            <ul>
+                                <li>Node-RED
+                                    <ul>
+                                        <li>Gestion des flots</li>
+                                        <li>Composantes de base</li>
+                                        <li>Composantes de programmation</li>
+                                        <li>Composantes réseau</li>
+                                        <li>Composantes de séquences d'événements</li>
+                                        <li>Ajout de composantes supplémentaires</li>
+                                        <li>Ajout de variables d'environnement globale</li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/3/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/3/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 4</div>
+                        <div class="description">
+                            <ul>
+                                <li><strong style="color: red;">Quiz</strong></li>
+                                <li>Raspberry Pi
+                                    <ul>
+                                        <li>Installation</li>
+                                        <li>Utilisation de Raspberry Pi OS</li>
+                                        <li>Utilisation à distance en SSH</li>
+                                        <li>Utilisation en tant que Hub d'automatisation</li>
+                                    </ul>
+                                </li>
+                                <li>Protocoles de communication en internet des objets (Serial, Wifi, BLE, Lora ...)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/4/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/4/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 5</div>
+                        <div class="description">
+                            <ul>
+                                <li>Atelier et révision</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/5/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/5/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 6</div>
+                        <div class="description">
+                            <ul>
+                                <li>Travail sur le Travail Pratique 1</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/6/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/6/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 7</div>
+                        <div class="description">
+                            <ul>
+                                <li><strong style="color: red;">Examen de mi-session</strong></li>
+                                <li>Travail sur le Travail Pratique 1</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/7/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 8</div>
+                        <div class="description">
+                            <ul>
+                                <li>Ajout d'une base de données</li>
+                                <li>Node-RED
+                                    <ul>
+                                        <li>Composantes réseau (suite)</li>
+                                        <li>Composantes de gestion des fichiers</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 9</div>
+                        <div class="description">
+                            <ul>
+                                <li>Ajout d'un serveur web au réseau d'internet des objets
+                                    <ul>
+                                        <li>Utilisation de librairies MQTT (ex. MQTT.js)</li>
+                                    </ul>
+                                </li>
+                                <li>Utilisation d'une page web pour configurer le système d'objets connectés</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/9/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/9/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 10</div>
+                        <div class="description">
+                            <ul>
+                                <li>Utilisation de l'appartement intelligent</li>
+                                <li>Mise en page personalisées dans Node-RED</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/10/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/10/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 11</div>
+                        <div class="description">
+                            <ul>
+                                <li>Mise en page personalisées dans Node-RED (suite)</li>
+                                <li>Atelier</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/11/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/11/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 12</div>
+                        <div class="description">
+                            <ul>
+                                <li><strong>Épreuve synthèse - Volet A</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/12/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/12/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 13</div>
+                        <div class="description">
+                            <ul>
+                                <li><strong>Épreuve synthèse - Volet A</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="theory"><a target="_blank" href="../../shared/theorie/?f=iot/13/theorie.html">Théorie</a></div>
+                        <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/13/exercices.html">Exercices</a></div>
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 14</div>
+                        <div class="description">
+                            <ul>
+                                <li><strong>Épreuve synthèse - Volet A et C</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                    </div>
+                </div>
+                <div class="line disabled">
+                    <div class="left">
+                        <div class="label">Cours 15</div>
+                        <div class="description">
+                            <ul>
+                                <li><strong>Épreuve synthèse - Volet A et B</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="libs/prism/prism.js"></script>
+        <script src="js/main.js" type="module"></script>
+    </body>
+</html>

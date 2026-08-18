@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 550">
+
+    <defs>
+    <!-- Solid Arrowhead for Sync Paths -->
+    <marker id="arrow-sync" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333" />
+    </marker>
+    <!-- Dashed Arrowhead for Async Paths -->
+    <marker id="arrow-async" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0066cc" />
+    </marker>
+  </defs>
+
+  <g>
+    <rect x="50" y="60" width="160" height="240" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+    <text x="130" y="165" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#0369a1">Clients</text>
+    <text x="130" y="190" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#0369a1">(Web / Mobile)</text>
+  </g>
+
+  <!-- API Server -->
+  <g>
+    <rect x="420" y="60" width="160" height="240" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2" />
+    <text x="500" y="160" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#15803d">Serveur</text>
+    <text x="500" y="185" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#15803d">(Web et API)</text>
+  </g>
+
+  <!-- Database -->
+  <g>
+    <path d="M 790 100 C 790 80, 910 80, 910 100 L 910 220 C 910 240, 790 240, 790 220 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2" />
+    <path d="M 790 100 C 790 120, 910 120, 910 100" fill="none" stroke="#ca8a04" stroke-width="2" />
+    <text x="850" y="165" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#a16207">BDD</text>
+    <text x="850" y="190" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#a16207">(Stockage)</text>
+  </g>
+  
+  <g font-family="sans-serif" font-size="13" font-weight="bold" fill="#333333">
+    <line x1="220" y1="130" x2="410" y2="130" stroke="#333333" stroke-width="2" marker-end="url(#arrow-sync)" />
+    <text x="310" y="120" text-anchor="middle">Requête (Synchrone)</text>
+
+    <line x1="590" y1="130" x2="780" y2="130" stroke="#333333" stroke-width="2" marker-end="url(#arrow-sync)" />
+    <text x="680" y="120" text-anchor="middle">Requête BDD</text>
+
+    <line x1="780" y1="170" x2="590" y2="170" stroke="#333333" stroke-width="2" marker-end="url(#arrow-sync)" />
+    <text x="680" y="160" text-anchor="middle">Données retournées</text>
+
+    <line x1="410" y1="170" x2="220" y2="170" stroke="#333333" stroke-width="2" marker-end="url(#arrow-sync)" />
+    <text x="310" y="160" text-anchor="middle">Réponse (HTML/JSON)</text>
+  </g>
+
+
+  <!-- =============================== -->
+  <!--     SECONDARY PATH (ASYNC)    -->
+  <!-- =============================== -->
+  
+  <g font-family="sans-serif" font-size="13" font-weight="bold" fill="#0066cc">
+    <line x1="220" y1="220" x2="410" y2="220" stroke="#0066cc" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-async)" />
+    <text x="310" y="210" text-anchor="middle">Requête Asynchrone</text>
+
+    <line x1="410" y1="250" x2="220" y2="250" stroke="#0066cc" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-async)" />
+    <text x="310" y="240" text-anchor="middle">Réponse Asynchrone</text>
+  </g>
+
+</svg>

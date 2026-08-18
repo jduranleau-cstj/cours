@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MQTT</title>
+        <style>
+            body {
+                margin: 0px;
+                display: grid;
+                place-items: center;
+                min-height: 100vh;
+                font-family: system-ui;
+            }
+
+            .scene {
+                position: relative;
+                width: 800px;
+                height: 600px;
+            }
+
+            .circle {
+                position: absolute;
+                translate: -50% -50%;
+                aspect-ratio: 1;
+                border-radius: 100%;
+                border: 2px solid #555;
+                display: grid;
+                place-items: center;
+                padding: 10px;
+                background-color: white;
+                cursor: pointer;
+
+                .menu {
+                    font-size: 18px;
+                    position: absolute;
+                    width: 200%;
+                    top: -10px;
+                    left: -50%;
+                    translate: 0px -100%;
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+
+                    &.visible {
+                        display: flex;
+                    }
+
+                    a {
+                        width: fit-content;
+                        text-decoration: none;
+                        display: block;
+                        margin: 5px 0px;
+                        border-bottom: 1px dotted #AAA;
+                    }
+                }
+
+                .network {
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                    text-decoration: none;
+
+                    &.off {
+                        filter: grayscale(1);
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+            .broker {
+                top: 50%;
+                left: 50%;
+                font-size: 26px;
+                padding: 25px;
+                font-weight: bold;
+                background-color: #555;
+                color: #fff;
+
+                span {
+                    font-size: 16px;
+                }
+            }
+
+            .sensor {
+                font-size: 22px;
+                width: 110px;
+                left: 18%;
+
+                &.thermostat {
+                    top: 30%;
+                    background-color: rgb(220, 220, 255);
+                }
+
+                &.light {
+                    top: 70%;
+                    background-color: rgb(249, 255, 199)
+                }
+            }
+
+            .client {
+                right: 0px;
+                top: 50%;
+                width: 110px;
+                font-size: 22px;
+                text-align: center;
+                background-color: rgb(183, 252, 180);
+            }
+
+            .line {
+                position: absolute;
+                width: 300px;
+                height: 0px;
+                border-top: 2px solid #55555517;
+                opacity: 0;
+
+                &.visible {
+                    opacity: 1;
+                }
+
+                &.yellow {
+                    border-color: rgba(219, 192, 73, 0.3);
+                }
+
+                &.blue {
+                    border-color: rgb(105, 122, 221, 0.3);
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -2px;
+                    left: 0px;
+                    width: 100%;
+                    height: 3px;
+                }
+
+                &.off::after,
+                &.offline::after {
+                    opacity: 0;
+                }
+
+                &.yellow::after {
+                    background-image: linear-gradient(to right, rgb(194, 192, 101) 20%, transparent 0%);
+                }
+
+                &.blue::after {
+                    background-image: linear-gradient(to right, rgb(105, 122, 221) 20%, transparent 0%);
+                }
+
+                &.pub::after {
+                    animation: publish 1s infinite;
+                }
+
+                &.sub::after {
+                    animation: subscribe 1s infinite;
+                    animation-delay: 500ms;
+                }
+            }
+
+            .line1 {
+                top: 235px;
+                rotate: 28deg;
+                left: 120px;
+            }
+
+            .line2,
+            .line2b {
+                top: 365px;
+                rotate: -26deg;
+                left: 120px;
+            }
+
+            .line2b {
+                top: 375px;
+            }
+
+            .line2 {
+                top: 365px;
+                rotate: -26deg;
+                left: 120px;
+            }
+
+            .line3,
+            .line3b,
+            .line3c,
+            .line3d {
+                top: calc(50% - 5px);
+                left: 50%;
+                rotate: 180deg;
+            }
+
+            .line3b {
+                top: calc(50% + 5px);
+                rotate: 180deg;
+            }
+
+            @keyframes publish {
+                0% {
+                    background-position: 0px 0px;
+                }
+
+                100% {
+                    background-position: 250px 0px;
+                }
+            }
+
+            @keyframes subscribe {
+                0% {
+                    background-position: 250px 0px;
+                }
+
+                100% {
+                    background-position: 0px 0px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="scene">
+            <div class="line pub line1 blue"></div>
+            <div class="line pub line2 yellow"></div>
+            <div class="line sub line2b off blue" data-depends="line1"></div>
+            <div class="line sub line3 off blue" data-depends="line1"></div>
+            <div class="line sub line3b off yellow" data-depends="line2"></div>
+            <div class="sensor thermostat circle">
+                Thermostat
+                <div class="menu">
+                    <a href="#" data-target="line1" class="publish">Publish /salon/temp</a>
+                </div>
+                <a href="#" class="network" data-targets="line1,line2b,line3">🛜</a>
+            </div>
+            <div class="sensor light circle">
+                Lumière
+                <div class="menu">
+                    <a href="#" data-target="line2" class="publish">Publish /salon/lumiere</a>
+                    <a href="#" data-target="line2b" class="subscribe">Subscribe /salon/temp</a>
+                </div>
+                <a href="#" class="network" data-targets="line2,line3b">🛜</a>
+            </div>
+            <div class="broker circle">
+                Broker<br><span>(Courtier)</span>
+                <a href="#" class="network" data-targets="line2b,line3,line3b">🛜</a>
+            </div>
+            <div class="client circle">
+                App<br>mobile
+                <div class="menu">
+                    <a href="#" data-target="line3" class="subscribe">Subscribe /salon/temp</a>
+                    <a href="#" data-target="line3b" class="subscribe">Subscribe /salon/lumiere</a>
+                </div>
+                <a href="#" class="network" data-targets="">🛜</a>
+            </div>
+        </div>
+
+        <script>
+            const circles = document.querySelectorAll(".circle")
+            const sensor1 = document.querySelector(".thermostat")
+            const sensor2 = document.querySelector(".light")
+            const broker = document.querySelector(".broker")
+            const client = document.querySelector(".client")
+
+            let opened_menu = null
+
+            for (let circle of circles) {
+                circle.addEventListener("click", e => {
+                    e.preventDefault()
+
+                    if (opened_menu !== null) {
+                        opened_menu.classList.remove("visible")
+                    }
+
+                    const menu = circle.querySelector(".menu")
+
+                    if (menu) {
+                        opened_menu = menu
+                        opened_menu.classList.add("visible")
+                    }
+                })
+            }
+
+            const links = document.querySelectorAll(".menu a")
+
+            for (let link of links) {
+                link.addEventListener("click", e => {
+                    const target_class = link.getAttribute("data-target")
+
+                    const line = document.querySelector(`.${target_class}`)
+                    line.classList.add("visible")
+
+                    const dependencies = document.querySelectorAll(`[data-depends=${target_class}]`)
+
+                    for (let d of dependencies) {
+                        console.log(d)
+                        d.classList.remove("off")
+                    }
+
+                    link.remove()
+                })
+            }
+
+            const networks = document.querySelectorAll(".network")
+
+            for (let network of networks) {
+                network.addEventListener("click", e => {
+                    e.preventDefault()
+                    e.stopPropagation()
+
+                    const targets = network.getAttribute("data-targets").split(",").filter(v => v !== "")
+
+                    console.log(targets)
+
+                    for (let target_class of targets) {
+                        const dependency = document.querySelector(`.${target_class}`)
+
+                        if (network.classList.contains("off")) {
+                            dependency.classList.remove("offline")
+                        } else {
+                            dependency.classList.add("offline")
+                        }
+                    }
+
+                    network.classList.toggle("off")
+                })
+            }
+
+
+        </script>
+    </body>
+</html>
