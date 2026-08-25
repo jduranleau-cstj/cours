@@ -42,7 +42,7 @@
                         <div class="lab"><a target="_blank" href="../../shared/exercices/?f=iot/1/exercices.html">Exercices</a></div>
                     </div>
                 </div>
-                <div class="line disabled">
+                <div class="line">
                     <div class="left">
                         <div class="label">Cours 2</div>
                         <div class="description">
@@ -270,6 +270,12 @@
             </main>
         </div>
         <script src="libs/prism/prism.js"></script>
-        <script src="js/main.js" type="module"></script>
+        <script>
+            if (location.href.indexOf("?debug") !== -1) {
+                document.querySelectorAll(".disabled").forEach(el => {
+                    el.classList.remove("disabled")
+                })
+            }
+        </script>
     </body>
 </html>
