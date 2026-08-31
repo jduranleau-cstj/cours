@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="../../cours/multiclients/style.css">
+
+<div class="slide center intro">
+    <h1>Systèmes multiclients</h1>
+    <h2>Cours 03</h2>
+</div>
+
+<div class="slide">
+    <h1>Sujets de la semaine</h1>
+    <div class="planning">
+        <ul>
+            <li>JWT</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Json Web Token (JWT)</h1>
+    <ul>
+        <li><a href="https://www.rfc-editor.org/info/rfc7519/" target="_blank">Standard officiel</a></li>
+        <li>Utilisé pour l'authentification et les autorisations</li>
+        <li>Autonome (self-contained): Pas besoin de base de donnée pour valider le token</li>
+    </ul>
+</div>
+
+<div class="slide center">
+    <img src="../../cours/multiclients/3/jwt.png" alt="" style="max-width: 90%; max-height: 80vh">
+    <p style="font-size: 0.5em">Source: <a href="https://logto.io/jwt-decoder" target="_blank">https://logto.io/jwt-decoder</a></p>
+</div>
+
+<div class="slide">
+    <h1>Résumé</h1>
+    <p><strong>Header</strong>: Contient le type de jeton et l'algorithme de signature utilisé.</p>
+    <p><strong>Payload</strong>: Contient les "claims" (données).</p>
+    <p><strong>Signature</strong>: Assure l'intégrité du message en combinant le header encodé, le payload encodé et une clé secrète connue uniquement du serveur.</p>
+</div>
+
+<div class="slide">
+    <h1>Liste de "claims" standardisées</h1>
+    <ul>
+        <li><strong>iss</strong>: Nom du serveur (Issuer)</li>
+        <li><strong>exp</strong>: Date d'expiration</li>
+        <li><strong>iat</strong>: Date de création (Issued At)</li>
+        <li><strong>jti</strong>: Identifiant unique du token (JWT ID)</li>
+    </ul>
+</div>
+
+<div class="slide center">
+    <h1>Outils utiles<br><a href="https://www.jwt.io/" target="_blank">https://www.jwt.io/</a></h1>
+</div>
+
+
+<!-- <div class="slide">
+    <h1>Exercice</h1>
+    <ul style="text-align: left;">
+        <li>Ajouter notre nouvelle authentification au projet du cours 1</li>
+        <li>Finaliser les demandes du cours 1</li>
+    </ul>
+</div> -->
