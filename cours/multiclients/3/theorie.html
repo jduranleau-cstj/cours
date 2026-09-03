@@ -29,7 +29,7 @@
 </div>
 
 <div class="slide">
-    <h1>Résumé</h1>
+    <h1>Structure d'un JWT</h1>
     <p><strong>Header</strong>: Contient le type de jeton et l'algorithme de signature utilisé.</p>
     <p><strong>Payload</strong>: Contient les "claims" (données).</p>
     <p><strong>Signature</strong>: Assure l'intégrité du message en combinant le header encodé, le payload encodé et une clé secrète connue uniquement du serveur.</p>
@@ -43,6 +43,17 @@
         <li><strong>iat</strong>: Date de création (Issued At)</li>
         <li><strong>jti</strong>: Identifiant unique du token (JWT ID)</li>
     </ul>
+</div>
+
+<div class="slide">
+    <h1>Transfert du token</h1>
+    <p>Habituellement, le token est envoyé en header HTTP avec la requête.</p>
+    <p>JS (envoi):
+    <pre><code class="language-javascript">"Authorization": "Bearer le.JWT.ici"</code></pre>
+    </p>
+    <p>PHP (réception):
+    <pre><code class="language-php">$_SERVER["HTTP_AUTHORIZATION"]</code></pre>
+    </p>
 </div>
 
 <div class="slide center">
