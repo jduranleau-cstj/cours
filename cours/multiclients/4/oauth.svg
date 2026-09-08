@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 300" xmlns:bx="https://boxy-svg.com">
+  <rect x="15.725" y="44.029" width="149.071" height="225.304" style="stroke: rgb(0, 0, 0); fill: none;"/>
+  <rect x="31.45" y="58.497" width="114.477" height="94.978" style="stroke: rgb(0, 0, 0); fill: none; stroke-dasharray: 2;"/>
+  <rect x="31.898" y="159.418" width="114.477" height="94.978" style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none; stroke-dasharray: 2;"/>
+  <rect x="341.827" y="68.295" width="114.477" height="61.295" style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none;"/>
+  <g transform="matrix(1, 0, 0, 1, 1.437225, 118.300995)">
+    <line style="fill: none; stroke: rgb(0, 0, 0);" x1="145.653" y1="87.633" x2="327.058" y2="87.272"/>
+    <path d="M 253.136 131.63 L 258.823 143.004 L 247.449 143.004 L 253.136 131.63 Z" bx:shape="triangle 247.449 131.63 11.374 11.374 0.5 0 1@ff9f107f" style="stroke: rgb(0, 0, 0); fill: none; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1, -1, 0, 79.69635, -50.156555)"/>
+  </g>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 18px; font-weight: 700; white-space: pre;" x="47.363" y="37.914">Application</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 18px; font-weight: 700; white-space: pre;" x="332.061" y="37.914">Service OAuth2</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 18px; white-space: pre;" x="65.604" y="107.938">Client</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 18px; white-space: pre; stroke-width: 1;" x="55.371" y="209.724">Serveur</text>
+  <g transform="matrix(-0.906308, 0.422618, -0.422618, -0.906308, 8.095122, 60.614037)" style="transform-origin: 242.086px 87.1604px;">
+    <line style="fill: none; stroke: rgb(0, 0, 0);" x1="145.653" y1="86.865" x2="345.452" y2="87.272"/>
+    <path d="M 253.136 131.63 L 258.823 143.004 L 247.449 143.004 L 253.136 131.63 Z" bx:shape="triangle 247.449 131.63 11.374 11.374 0.5 0 1@ff9f107f" style="stroke: rgb(0, 0, 0); fill: none; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1, -1, 0, 97.444916, -49.926361)"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 0.07591, 9.576805)">
+    <line style="fill: none; stroke: rgb(0, 0, 0);" x1="145.653" y1="87.633" x2="327.058" y2="87.272"/>
+    <path d="M 253.136 131.63 L 258.823 143.004 L 247.449 143.004 L 253.136 131.63 Z" bx:shape="triangle 247.449 131.63 11.374 11.374 0.5 0 1@ff9f107f" style="stroke: rgb(0, 0, 0); fill: none; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1, -1, 0, 79.69635, -50.156555)"/>
+  </g>
+  <g transform="matrix(-1, 0, 0, -1, 3.096902, 140.309387)" style="transform-origin: 242.086px 87.1604px;">
+    <line style="fill: none; stroke: rgb(0, 0, 0);" x1="145.653" y1="87.633" x2="327.058" y2="87.272"/>
+    <path d="M 253.136 131.63 L 258.823 143.004 L 247.449 143.004 L 253.136 131.63 Z" bx:shape="triangle 247.449 131.63 11.374 11.374 0.5 0 1@ff9f107f" style="stroke: rgb(0, 0, 0); fill: none; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1, -1, 0, 79.69635, -50.156555)"/>
+  </g>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 18px; white-space: pre; stroke-width: 1;" x="363.631" y="217.829">Authorize</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 18px; white-space: pre; stroke-width: 1;" x="376.098" y="102.633">Grant</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 9px; white-space: pre;" x="373.901" y="114.085">(permissions)</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 9px; white-space: pre; stroke-width: 1;" x="214.476" y="93.032">client_id</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 9px; white-space: pre; stroke-width: 1; transform-box: fill-box; transform-origin: 50% 50%;" x="215.889" y="152.315" transform="matrix(0.898794, -0.438371, 0.438371, 0.898794, 5.726104, 0.000005)">code</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 9px; white-space: pre; stroke-width: 1;" x="189.953" y="202.503">code + client_id + client_secret</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 9px; white-space: pre; stroke-width: 1;" x="197.141" y="224.396">access_token + expiration</text>
+  <rect x="341.887" y="180.276" width="114.477" height="61.295" style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none;"/>
+</svg>
