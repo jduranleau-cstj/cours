@@ -201,10 +201,73 @@
 <div class="slide">
     <h1>GraphQL</h1>
     <p>GraphQL représente une façon unifiée d'accéder à des données à l'aide d'une API.</p>
-    <p>Il s'agit donc d'une <strong>alternative à REST</strong></p>
+    <ul>
+        <li>Il s'agit donc d'une <strong>alternative à REST</strong></li>
+        <li>Créé par Facebook en 2012 et open-source depuis 2015</li>
+    </ul>
 </div>
 
 <div class="slide">
-    <h1>Structure d'utilisation</h1>
-    <p>Schema: Structure des données possibles</p>
+    <h1>Nomenclature</h1>
+    <ul>
+        <li><strong>Schema</strong>: Structure <u>typée</u> et relations des données</li>
+        <li><strong>Query</strong>: Récupération de données (read)</li>
+        <li><strong>Mutation</strong>: Modification (insert, update, delete)</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <div class="column-2">
+        <div>
+            <h2>REST</h2>
+            <p><code class="language-html">GET /posts</code></p>
+            <p>Suivi d'un appel par post à:</p>
+            <p><code class="language-html">GET /post/{x}/comments?qty=3</code></p>
+        </div>
+        <div>
+            <h2>GraphQL</h2>
+            <p><code class="language-html">POST /graphql</code></p>
+            <p>Body du POST:</p>
+            <p>
+            <pre style="font-size: 0.7rem"><code class="language-json">query {
+    posts {
+        title
+        comments(qty: 3) {
+            author,
+            text
+        }
+    }
+}</pre></code></p>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Types disponibles</h1>
+    <p><code class="language-js">String</code>, <code class="language-js">Int</code>, <code class="language-js">Float</code>, <code class="language-js">Boolean</code> et <code class="language-js">ID</code></p>
+    <p>Et quelques "modificateurs":</p>
+    <ul>
+        <li><code class="language-js">[Int]</code> : Array de <code class="language-js">Int</code></li>
+        <li><code class="language-js">Int!</code> : <code class="language-js">Int</code> non null</li>
+        <li><code class="language-js">[Int!]!</code> : Array non null de <code class="language-js">Int</code> non null</li>
+    </ul>
+    <p>Plus d'explications: <a href="https://www.apollographql.com/docs/apollo-server/schema/schema" target="_blank">https://www.apollographql.com/docs/apollo-server/schema/schema</a></p>
+</div>
+
+<div class="slide">
+    <h1>Graph<span style="color: red">i</span>QL et </h1>
+    <p>Prononcé "graphical", <a href="https://github.com/graphql/graphiql" target="_blank">GraphiQL</a> est un outil qui:</p>
+    <ul>
+        <li>Génère la documentation d'un "Schema" GraphQL</li>
+        <li>Offre un éditeur de requête avec autocomplétion</li>
+        <li>Exécute les requêtes avec une console de résultat</li>
+    </ul>
+    <p><br><a href="https://www.apollographql.com/" target="_blank">Apollo</a> est un autre système du même style.</p>
+</div>
+
+<div class="slide center">
+    <h1>Exemples avec GraphiQL et Apollo</h1>
+    <p><a href="https://github.com/APIs-guru/graphql-apis" target="_blank">https://github.com/APIs-guru/graphql-apis</a></p>
+    <p>SWAPI, AniList, Rick and Morty, ...</p>
+    <p>Appolo: <a href="https://studio.apollographql.com/sandbox/explorer" target="_blank">https://studio.apollographql.com/sandbox/explorer</p>
 </div>
