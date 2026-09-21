@@ -1,0 +1,94 @@
+query {
+  Studio(search: "Ghibli") {
+    name,
+    media {
+      nodes {
+        id,
+        seasonYear
+        title {
+          english
+        }
+      }
+    }
+  }
+
+  Media(sort: [POPULARITY_DESC]) {
+    title {
+      english
+      romaji
+    }
+    popularity
+  }
+
+  User(search: "Bob") {
+    name
+    createdAt
+    avatar {
+      large
+    }
+  }
+
+}
+# ==================================================
+query {
+  countries {
+    name
+    phone
+  }
+  
+  countries(filter: {continent: {in: "EU"}}) {
+    name
+    phone
+  }
+
+  languages {
+    name
+    countries {
+      name
+    }
+  }
+
+  languages(filter: {code: {eq: "fr"}}) {
+    name
+    countries {
+      name
+    }
+  }
+}
+# ==================================================
+query {
+  projects(search: "Linux", sort: "starCount_desc") {
+    edges {
+      node {
+        fullPath
+        description
+      }
+    }
+  }
+}
+# ==================================================
+query {
+  pokemons(first: 10) {
+    name
+    number
+    evolutions {
+      name
+    }
+  }
+  
+  pokemon(name: "Mew") {
+    name
+    attacks {
+      fast {
+        name
+        type
+        damage
+      }
+      special {
+        name
+        type
+        damage
+      }
+    }
+  }
+}
