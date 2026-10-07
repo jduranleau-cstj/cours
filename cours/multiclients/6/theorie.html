@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="../../cours/multiclients/style.css">
+
+<div class="slide center intro">
+    <h1>Systèmes multiclients</h1>
+    <h2>Cours 06</h2>
+</div>
+
+<div class="slide">
+    <h1>Sujets de la semaine</h1>
+    <div class="planning">
+        <ul>
+            <li>GraphQL côté serveur</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide center">
+    <h1>Installation d'un serveur</h1>
+    <p><a href="https://www.apollographql.com/docs/apollo-server/getting-started">Avec Apollo Server</a></p>
+</div>
+
+<div class="slide center">
+    <h1>Extension VSC</h1>
+    <p>GraphQL: Syntax Highlighting</p>
+</div>
+
+<div class="slide">
+    <h1>Le typedef</h1>
+    <p>Le typedef du serveur défini tous <strong>les types</strong> et <strong>requêtes</strong> qui peuvent être utilisés.</p>
+    <pre><code class="language-javascript">export const typedefs = `#graphql
+
+    type Query {
+        games: [Game!]!
+    }
+    
+    type Game {
+        id: ID!
+        title: String!
+    }
+`</pre></code>
+</div>
