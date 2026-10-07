@@ -25,9 +25,9 @@
 </div>
 
 <div class="slide">
-    <h1>Le typedef</h1>
-    <p>Le typedef du serveur défini tous <strong>les types</strong> et <strong>requêtes</strong> qui peuvent être utilisés.</p>
-    <pre><code class="language-javascript">export const typedefs = `#graphql
+    <h1>Les typedefs</h1>
+    <p>Les typedefs du serveur définissent tous <strong>les types</strong> et <strong>requêtes</strong> qui peuvent être utilisés.</p>
+    <pre style="font-size: 0.7rem"><code class="language-javascript">export const typedefs = `#graphql
 
     type Query {
         games: [Game!]!
@@ -38,4 +38,45 @@
         title: String!
     }
 `</pre></code>
+</div>
+
+<div class="slide">
+    <h1>Les resolvers</h1>
+    <p>Les "resolvers" sont les fonctions qui récupèrent ou modifient les données.</p>
+    <pre style="font-size: 0.7rem"><code class="language-javascript">export const resolvers = {
+    Query: {
+        games: () => {
+            return [{ id: "1", title: "Celeste" },]
+        }
+    }
+}</pre></code>
+</div>
+
+<div class="slide">
+    <h1>Les mutations</h1>
+    <p>Les mutations sont les requêtes qui permettent d'ajouter, modifier ou supprimer des données.</p>
+    <pre style="font-size: 0.7rem"><code class="language-javascript">type Mutation {
+    ajoutLivre(livre: AjoutLivreInput): ID!
+}
+
+input AjoutLivreInput {
+    titre: String!
+    auteur_id: ID
+}</pre></code>
+</div>
+
+<div class="slide">
+    <h1>Exemple Javascript</h1>
+    <p>Exemple pour récupérer des données GraphQL avec Javascript</p>
+    <pre style="font-size: 0.7rem"><code class="language-javascript">async function graphql(url, query, variables = {}) {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query, variables })
+    })
+
+    const json = await response.json()
+
+    return json
+}</code></pre>
 </div>
