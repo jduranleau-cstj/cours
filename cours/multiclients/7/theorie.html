@@ -16,3 +16,112 @@
         </ul>
     </div>
 </div>
+
+<div class="slide">
+    <h1>Rate-limiting</h1>
+    <p>Le rate-limiting consiste à <strong>restreindre le nombre de requêtes</strong> qu'un client peut effectuer sur une période donnée.</p>
+    <p>On utilise son IP, son JWT ou sa clé d'API pour l'isoler.</p>
+</div>
+
+<div class="slide">
+    <h1>Exemple: Middleware de rate-limiting</h1>
+    <div>
+        <pre style="font-size: 0.8rem"><code class="language-javascript">const rateLimit = require('express-rate-limit')
+
+const limiteConnexion = rateLimit({
+    windowMs: 60 * 1000,
+    max: 5,
+    message: { error: "Trop de tentatives de connexion." }
+})
+
+app.post('/login', limiteConnexion, (req, res) => {
+    res.json({ success: true })
+})</code></pre>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Caching</h1>
+    <p>Le caching consiste à <strong>sauvegarder temporairement</strong> une copie des données fréquemment utilisées dans un espace de <strong>stockage très rapide</strong> (ex: RAM).</p>
+    <p>Exemples typiques:</p>
+    <ul>
+        <li>Résultats de requêtes SQL complexes</li>
+        <li>Réponses d'API tierces</li>
+        <li>Données qui changent peu</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h1>Exemple: Caching avec <a href="https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/" target="_blank">Redis</a></h1>
+    <pre style="font-size: 0.60rem"><code class="language-javascript">const { createClient } = require('redis')
+const redis = createClient()
+await redis.connect()
+
+function getUser(id) {
+    const cache_key = "user"+id
+    
+    const cached = await redis.get(cache_key)
+    if (cached) { 
+        return res.json(JSON.parse(cached))
+    }
+
+    const user = await getUserFromDB(id)
+    await redis.setEx(cache_key, 60, JSON.stringify(user))
+    return res.json(user)
+}</code></pre>
+</div>
+
+<div class="slide">
+    <h1>Déploiement</h1>
+    <p>Quelques suggestions:</p>
+    <ul>
+        <li><strong>PHP</strong>: <a href="http://techinfo-cstj.ca" target="_blank">Serveur de l'école</a></li>
+        <li><strong>NodeJS</strong>: <a href="https://www.evennode.com/" target="_blank">evennode.com</a> ou <a href="https://render.com/docs" target="_blank">render.com</a></li>
+        <li><strong>Web frontend</strong>: <a href="http://techinfo-cstj.ca" target="_blank">Serveur de l'école</a> ou <a href="https://docs.github.com/fr/pages" target="_blank">Github Pages</a></li>
+        <li><strong>Android</strong>: <s><a href="https://developer.android.com/distribute/console" target="_blank">Play store</a></s> (pas nécessaire)</li>
+    </ul>
+</div>
+
+<div class="slide center">
+    <img src="../../cours/multiclients/7/tests_prod.webp" alt="">
+</div>
+
+<div class="slide">
+    <h1>Frameworks multiclients</h1>
+    <p>Permet de créer des applications pour <strong>plusieurs types de clients</strong> à partir d'une <strong>base de code unique</strong>.</p>
+    <p>Quelques exemples:</p>
+    <ul>
+        <li><a href="https://flutter.dev/" target="_blank">Flutter</a> (Dart)</li>
+        <li><a href="https://reactnative.dev/" target="_blank">React Native</a> (Typescript)</li>
+        <li><a href="https://dotnet.microsoft.com/en-us/apps/maui" target="_blank">.NET MAUI</a> (C#)</li>
+        <li><a href="https://ionicframework.com/" target="_blank">Ionic</a> (HTML, CSS, JS)</li>
+    </ul>
+</div>
+<div class="slide">
+    <h1>Frameworks multiclients</h1>
+    <div class="column-2">
+        <div>
+            <h2>Positifs</h2>
+            <ul>
+                <li>Code partagé</li>
+                <li>Mises à jour simplifiées</li>
+                <li>Synchronisation des fonctionnalités</li>
+                <li>Équipe multidisciplinaire</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Négatifs</h2>
+            <ul>
+                <li>Performances non optimales</li>
+                <li>Limite des fonctionnalités</li>
+                <li>Comportements non natifs</li>
+                <li>Code natif parfois nécessaire quand même</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="slide center">
+    <h1>Quelques gros noms...</h1>
+    <p>Discord, Instagram, Shopify, Teams, ...</p>
+</div>
