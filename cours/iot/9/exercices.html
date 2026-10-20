@@ -1,0 +1,21 @@
+<h1>Exercices - Cours 9</h1>
+
+<ol>
+    <li>
+        <p>À l'aide de Node-RED, créez une route (API) qui permet d'afficher le dernier message reçu par MQTT sur le topic "cours9/message".</p>
+        <p>Pour ce faire vous devrez d'abord sauvegarder dans une variable flow les messages reçus par MQTT.</p>
+        <p>Ensuite avec les node HTTP, vous pourrez créer la route et fournir son message.</p>
+    </li>
+    <li>
+        <p>Ajoutez au problème précédent le fait de sauvegarder chaque message à une base de données SQLite.</p>
+        <p>Il vous faudra construire la requête SQL dynamiquement. Lisez bien la documentation du node pour les paramètres de requête préparés.</p>
+    </li>
+    <li>
+        Créez une page Web qui fait une requête fetch à Node-RED pour avoir la liste de tous les messages envoyés juqsu'à maintenant et sauvegardés dans la BDD.
+    </li>
+    <li>
+        <p>Finalement, ajoutez un bouton physique contrôlé par Arduino qui permet de détruire tous les messages sauvegardés dans la base de données.</p>
+        <p>Il faudra envoyer la commande par MQTT!</p>
+        <p><img src="../../cours/iot/9/medias/bouton.png" alt="" style="width: 100px;"></p>
+    </li>
+</ol>

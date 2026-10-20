@@ -9,6 +9,7 @@
     <h1>Sujets de la semaine</h1>
     <div class="planning">
         <ul>
+            <li>Node-RED : Composantes réseau (suite)</li>
             <li>Node-RED : Gestion de fichiers</li>
             <li>Node-RED : Base de données</li>
             <li>MQTT sur le Web</li>
@@ -18,15 +19,72 @@
 </div>
 
 <div class="slide">
+    <h1>Composantes réseau</h1>
+    <p>Les nodes <code class="language-text">http in</code> et <code class="language-text">http response</code> permettent de créer des routes Web.</p>
+    <div>
+        <img src="../../cours/iot/9/medias/http.png" alt="">
+    </div>
+    <p>Les nodes <code class="language-text">http request</code> permet de faire une requête HTTP de serveur à serveur.</p>
+    <div>
+        <img src="../../cours/iot/9/medias/request.png" alt="">
+    </div>
+</div>
+
+<div class="slide">
     <h1>Fichiers avec Node-RED</h1>
-    
+    <p>On peut lire et écrire des fichiers.</p>
+    <p>On utilisera le dossier partagé par Docker.
+        <ul>
+            <li>Dans l'hôte: <code class="language-text">~/docker/nodered/partage</code>.</li>
+            <li>Dans Node-RED: <code class="language-text">/data/partage</code>.</li>
+        </ul>
+    </p>
+    <div>
+        <img src="../../cours/iot/9/medias/file_read.png" alt="">
+    </div>
 </div>
 
 <div class="slide">
-    node-red-node-sqlite
+    <h1>Mini serveur Web</h1>
+    <p>On ouvre en lecture le fichier donné en URL et retourne le bon Content-Type.</p>
+    <img src="../../cours/iot/9/medias/serveur.png" alt="">
+    <p><a href="../../cours/iot/9/medias/serveur.json" target="_blank">Télécharger le flow</a></p>
+</div>
+
+<div class="slide">
+    <h1>Base de données</h1>
+    <p>Plusieurs options de base de données sont disponibles. On utilisera SQLite.</p>
+    <p>Palette (plugin) nécessaire: <code class="language-text">node-red-node-sqlite</code></p>
+    <div class="column-2">
+        <img src="../../cours/iot/9/medias/sqlite.png" alt="">
+        <img src="../../cours/iot/9/medias/sqlite2.png" alt="">
+    </div>
 </div>
 
 
 <div class="slide">
-    https://github.com/mqttjs/MQTT.js
+    <h1>MQTT sur le Web</h1>
+    <p>Il est possible d'établir une connexion a un broker par JavaScript.</p>
+    <p>Il faudra utiliser un Websocket puisque c'est en TCP et non HTTP.</p>
+    <p>On utilisa la librairie <a href="https://github.com/mqttjs/MQTT.js" target="_blank">MQTT.js</a></p>
+    <ul>
+        <li>Plus précisément ce fichier: <a href="https://cdnjs.cloudflare.com/ajax/libs/mqtt/5.14.1/mqtt.esm.js" target="_blank">mqtt.esm.js</a></li>
+    </ul>
+</div>
+
+<div class="slide">
+<pre style="font-size:0.8rem"><code class="language-javascript">import mqtt from "./mqtt.esm.js"
+
+// "mqtt://piXX.local:9001" ou "mqtt://localhost:9001"
+const client = mqtt.connect("mqtt:test.mosquitto.org:8081")
+
+client.on("connect", () => {
+    client.subscribe("mon/topic")
+    client.publish("mon/topic", "Hello MQTT de JS")
+})
+
+client.on("message", (topic, message_buffer) => {
+    const message = message_buffer.toString() // Converti le buffer en string JS
+    console.log(`${topic}: ${message}`)
+})</code></pre>
 </div>

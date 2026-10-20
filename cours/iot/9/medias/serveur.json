@@ -1,0 +1,140 @@
+[
+    {
+        "id": "9872ee192c31e843",
+        "type": "http in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "url": "/projet/:f",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "b9321b4842d35db0"
+            ]
+        ]
+    },
+    {
+        "id": "631458bd558583c3",
+        "type": "http response",
+        "z": "f6f2187d.f17ca8",
+        "name": "HTML",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "text/html"
+        },
+        "x": 750,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "aaf44a0024513573",
+        "type": "file in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "8da3fe8b97c8bbf3"
+            ]
+        ]
+    },
+    {
+        "id": "b9321b4842d35db0",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "filename",
+        "func": "msg.filename = \"/data/partage/\" + msg.req.url\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "aaf44a0024513573"
+            ]
+        ]
+    },
+    {
+        "id": "8da3fe8b97c8bbf3",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "property": "req.url",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": ".html",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": ".css",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": ".json",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "631458bd558583c3"
+            ],
+            [
+                "a0335af82d9358f1"
+            ],
+            [
+                "596ad01a0570ab63"
+            ]
+        ]
+    },
+    {
+        "id": "a0335af82d9358f1",
+        "type": "http response",
+        "z": "f6f2187d.f17ca8",
+        "name": "CSS",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "text/css"
+        },
+        "x": 750,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "596ad01a0570ab63",
+        "type": "http response",
+        "z": "f6f2187d.f17ca8",
+        "name": "JSON",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 750,
+        "y": 360,
+        "wires": []
+    }
+]
