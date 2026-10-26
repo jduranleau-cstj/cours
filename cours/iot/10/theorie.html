@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="../../cours/iot/style.css">
+
+<div class="slide center intro">
+    <h1>Internet des objets</h1>
+    <h2>Cours 10</h2>
+</div>
+
+<div class="slide">
+    <h1>Sujets de la semaine</h1>
+    <div class="planning">
+        <ul>
+            <li>Node-RED : Mise en page</li>
+            <li>Appartement intelligent</li>
+            <li>Exercices</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Node-RED : Mise en page</h1>
+    <p>La mise en page de Node-RED dashboard utilise le principe de "grid" CSS.</p>
+    <p>On peut accéder à un outil pour visualiser la grille de composantes.</p>
+    <div style="display: flex; align-items: flex-start; height: 50vh">
+        <img src="../../cours/iot/10/medias/layout1.png">
+        <img src="../../cours/iot/10/medias/layout2.png" style="height: 100%">
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Node-RED : Mise en page</h1>
+    <p>Une fois modifié, il faut sauvegarder les modifications et faire <u><strong>un merge</strong></u> dans l'interface de d'édition.</p>
+    <p><img src="../../cours/iot/10/medias/layout3.png"></p>
+    <p><img src="../../cours/iot/10/medias/layout4.png"></p>
+    <p><img src="../../cours/iot/10/medias/layout5.png"></p>
+</div>
+
+<div class="slide">
+    <h1>VueJS avec Node-RED</h1>
+    <div class="column-2">
+        <div>
+            <p>En utilisant le node "template" <strong>du dashboard</strong>, on peut:</p>
+            <ul>
+                <li>Styliser du HTML avec CSS</li>
+                <li>Modifier le HTML avec un payload</li>
+                <li>Réagir aux payload avec JS</li>
+            </ul>
+        </div>
+        <div>
+            <pre style="font-size:0.6rem"><code class="language-javascript">&lt;template>
+    &lt;h1>Un titre stylisé&lt;/h1>
+&lt;/template>
+
+&lt;style>
+    h1 {
+        color: red;
+    }
+&lt;/style></code></pre>
+
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Contrôle du payload avec JS</h1>
+    <div class="column-2">
+        <div>
+            <pre style="font-size:0.6rem"><code class="language-javascript">&lt;template>
+    &lt;div>
+        &lt;p>Payload: {{ msg.payload }}&lt;/p>
+    &lt;/div>
+&lt;/template></code></pre>
+
+        </div>
+        <div>
+            <pre style="font-size:0.6rem"><code class="language-javascript">&lt;script>
+export default {
+    data() {
+        return {}
+    },
+    watch: {
+        msg: {
+            handler(m) {
+                // Dans la console du site Web
+                console.log(m)
+            },
+        }
+    },
+    methods: { },
+}
+&lt;/script></code></pre>
+        </div>
+    </div>
+</div>
+
+<div class="slide center">
+    <h1>Exercices (voir Teams)</h1>
+</div>
